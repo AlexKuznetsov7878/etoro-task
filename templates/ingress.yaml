@@ -5,7 +5,9 @@ metadata:
   name: {{ include "simple-web.fullname" . }}
   namespace: alex
   labels:
-{{ include "simple-web.labels" . | indent 4 }}
+    {{- include "simple-web.labels" . | nindent 4 }}
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   ingressClassName: nginx
   rules:
