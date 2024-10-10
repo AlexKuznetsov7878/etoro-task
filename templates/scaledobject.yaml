@@ -5,7 +5,7 @@ metadata:
   name: {{ include "simple-web.fullname" . }}
   namespace: alex
   labels:
-{{ include "simple-web.labels" . | indent 4 }}
+{{ include "simple-web.labels" . | indent 2 }}
 spec:
   scaleTargetRef:
     name: {{ include "simple-web.fullname" . }}
