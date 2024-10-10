@@ -57,18 +57,18 @@ autoscaling:
   enabled: false
 
 keda:
-  enabled: true
-  minReplicaCount: 1
-  maxReplicaCount: 10
-  triggers:
-    - type: cpu
-      metadata:
-        type: Utilization
-        value: "50"
-    - type: memory
-      metadata:
-        type: Utilization
-        value: "50"
+#  enabled: true
+#  minReplicaCount: 1
+#  maxReplicaCount: 10
+#  triggers:
+#    - type: cpu
+#      metadata:
+#        type: Utilization
+#        value: "50"
+#    - type: memory
+#     metadata:
+#       type: Utilization
+#        value: "50"
     - type: cron
       metadata:
         timezone: "UTC"
