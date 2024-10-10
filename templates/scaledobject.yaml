@@ -1,0 +1,17 @@
+{{- if .Values.keda.enabled }}
+apiVersion: keda.sh/v1alpha1
+kind: ScaledObject
+metadata:
+  name: {{ include "simple-web.fullname" . }}
+  namespace: alex
+  labels:
+    {{- include "simple-web.labels" . | nindent 4 }}
+spec:
+  scaleTargetRef:
+    name: {{ include "simple-web.fullname" . }}
+  minReplicaCount: {{ .Values.keda.minReplicaCount }}
+  maxReplicaCount: {{ .Values.keda.maxReplicaCount }}
+  triggers:
+    {{- toYaml .Values.keda.triggers | indent 4 }}
+{{- end }}
+
